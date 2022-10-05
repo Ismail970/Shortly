@@ -1,7 +1,7 @@
 import "regenerator-runtime";
 
 import { AJAX } from "./helpers";
-import { API_URL } from "./config";
+import { API_URL, TIMEOUT_SEC_STORAGE } from "./config";
 
 export let linkData = {};
 
@@ -29,4 +29,7 @@ export const getLocalStorage = function () {
   return JSON.parse(localStorage.getItem('links')) || [];
 };
 
-// localStorage.clear();
+// clear local sotrage after 3 hours
+setTimeout(function () {
+  localStorage.clear();
+}, TIMEOUT_SEC_STORAGE * 1000);

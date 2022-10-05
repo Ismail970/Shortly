@@ -508,7 +508,6 @@ footer {
 /* ===============media queries============== */
 @media (min-width:1100px) {
     header {
-        /* overflow-x: initial; */
         height: 100vh;
     }
 
@@ -598,7 +597,6 @@ footer {
     }
 
     .header__main-content img {
-        transform: translateX(200px);
         order: 1;
         max-width: 700px;
         -o-object-fit: cover;

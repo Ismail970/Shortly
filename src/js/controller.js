@@ -23,6 +23,7 @@ const controlShowLinks = async function () {
     await modul.getShortenedLink(View._inputUrl.value);
     modul.setLocalStorage();
     View.render(modul.linkData.originalLink, modul.linkData.shortenedLink);
+
     document.querySelector(".loader").style.removeProperty("display");
   } catch (err) {
     View.renderError(err.message);
@@ -32,6 +33,11 @@ const controlShowLinks = async function () {
 const controlLoadLinks = function () {
   const data = modul.getLocalStorage("links");
   if (data.length === 0) return;
+
+  // remove the "http:// || https://" so they can be correctly comparable above
+  data.forEach(data => inputUrlVal.push(data.originalLink.slice(data.originalLink.indexOf("/") + 2)));
+
+  modul.links.push(...data);
 
   // render from local storage
   data.forEach(item => View.render(item.originalLink, item.shortenedLink));
