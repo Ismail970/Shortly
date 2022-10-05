@@ -1,0 +1,21 @@
+{
+  "name": "shortly",
+  "version": "2.0.0",
+  "description": "Make your miles long url shorter",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "Me",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "@types/regenerator-runtime": "^0.13.1",
+    "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "core-js": "^3.25.5",
+    "regenerator-runtime": "^0.13.9"
+  }
+}
