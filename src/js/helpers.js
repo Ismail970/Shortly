@@ -28,5 +28,5 @@ const formatFullUrl = url => new URL(url).host.replace("www.", "");
 export const getUrl = url => {
   const a = document.createElement("a");
   a.href = url;
-  return url.startsWith("http") && formatFullUrl(url) || a.getAttribute('href', 2).replace("www.", "");
+  return url.startsWith("http") && formatFullUrl(url).toLocaleLowerCase() || a.getAttribute('href', 2).replace("www.", "").toLocaleLowerCase();
 };
