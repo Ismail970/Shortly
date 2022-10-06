@@ -24,7 +24,7 @@ const controlShowLinks = async function () {
 
     await modul.getShortenedLink(View._inputUrl.value);
     modul.setLocalStorage();
-    View.render(modul.linkData.originalLink, modul.linkData.shortenedLink);
+    View.render(modul.linkData.originalLink.toLowerCase(), modul.linkData.shortenedLink);
 
     document.querySelector(".loader").style.removeProperty("display");
   } catch (err) {
