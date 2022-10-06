@@ -9,7 +9,9 @@
 
 ### Screenshot
 
-![](screenshots/screenshot-shortly.png)
+![](screenshots/screenshot-shortly-desktop.png)
+
+![](screenshots/screenshot-shortly-mobile.png)
 
 ### Links
 

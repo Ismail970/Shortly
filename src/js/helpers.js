@@ -21,3 +21,12 @@ export const AJAX = async function (url) {
     throw err;
   }
 };
+
+// comparing url with the domain name
+const formatFullUrl = url => new URL(url).host.replace("www.", "");
+
+export const getUrl = url => {
+  const a = document.createElement("a");
+  a.href = url;
+  return url.startsWith("http") && formatFullUrl(url) || a.getAttribute('href', 2).replace("www.", "");
+};

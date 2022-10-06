@@ -3,6 +3,7 @@ import "regenerator-runtime";
 import { async } from "regenerator-runtime";
 
 import * as modul from "./modul";
+import { getUrl } from "./helpers";
 import View from "./View";
 
 let inputUrlVal = [];
@@ -12,13 +13,14 @@ const controlShowLinks = async function () {
     View.removeError();
     // check if the recevied link if already there
     document.querySelector(".loader").style.display = "inline-block";
-    const isDuplicated = inputUrlVal.some(link => link === View._inputUrl.value);
+    // comparing urls
+    const isDuplicated = inputUrlVal.some(link => link === getUrl(View._inputUrl.value));
     if (isDuplicated) {
       View.renderError("Already shortened");
       document.querySelector(".loader").style.removeProperty("display");
       return;
     }
-    inputUrlVal.push(View._inputUrl.value);
+    inputUrlVal.push(getUrl(View._inputUrl.value));
 
     await modul.getShortenedLink(View._inputUrl.value);
     modul.setLocalStorage();
@@ -35,7 +37,7 @@ const controlLoadLinks = function () {
   if (data.length === 0) return;
 
   // remove the "http:// || https://" so they can be correctly comparable above
-  data.forEach(data => inputUrlVal.push(data.originalLink.slice(data.originalLink.indexOf("/") + 2)));
+  data.forEach(data => inputUrlVal.push(getUrl(data.originalLink)));
 
   modul.links.push(...data);
 

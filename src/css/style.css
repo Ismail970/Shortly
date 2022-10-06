@@ -248,11 +248,11 @@ form {
 .urls-list li span:first-child:not(.urls-list li div span)::after {
     content: "";
     height: 1px;
-    margin: .5em 0;
+    margin: .5em 0 .5em .8em;
     background-color: var(--Gray);
     opacity: .6;
     display: block;
-    width: 352px;
+    width: 100%;
     transform: translateX(-13px);
 }
 
@@ -380,7 +380,7 @@ form {
 
 .line {
     background-color: var(--Cyan);
-    width: 24%;
+    width: 105px;
     height: 8px;
     margin: 0 auto;
     transform: rotateZ(90deg);
