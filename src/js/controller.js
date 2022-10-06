@@ -42,7 +42,7 @@ const controlLoadLinks = function () {
   modul.links.push(...data);
 
   // render from local storage
-  data.forEach(item => View.render(item.originalLink, item.shortenedLink));
+  data.forEach(item => View.render(item.originalLink.toLowerCase(), item.shortenedLink));
 };
 
 const init = function () {
